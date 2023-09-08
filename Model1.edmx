@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NeoSISBase_OH_SQL_AEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Movies">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Genres" Type="varchar" MaxLength="200" />
+          <Property Name="Original_Language" Type="char" MaxLength="2" Nullable="false" />
+          <Property Name="Budget" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Overview" Type="varchar" MaxLength="900" />
+          <Property Name="Popularity" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Production_Companies" Type="varchar" MaxLength="200" />
+          <Property Name="Release_date" Type="datetime" Nullable="false" />
+          <Property Name="Revenue" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Runtime" Type="int" />
+          <Property Name="Tagline" Type="varchar" MaxLength="200" />
+          <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Vote_Average" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Vote_Count" Type="int" />
+        </EntityType>
+        <EntityContainer Name="NeoSISBase_OH_SQL_AEModelStoreContainer">
+          <EntitySet Name="Movies" EntityType="Self.Movies" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NeoSISBase_OH_SQL_AEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Movy">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Genres" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Original_Language" Type="String" MaxLength="2" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="Budget" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Overview" Type="String" MaxLength="900" FixedLength="false" Unicode="false" />
+          <Property Name="Popularity" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Production_Companies" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Release_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Revenue" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Runtime" Type="Int32" />
+          <Property Name="Tagline" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Vote_Average" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Vote_Count" Type="Int32" />
+        </EntityType>
+        <EntityContainer Name="NeoSISBase_OH_SQL_AEEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Movies" EntityType="Self.Movy" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NeoSISBase_OH_SQL_AEModelStoreContainer" CdmEntityContainer="NeoSISBase_OH_SQL_AEEntities1">
+          <EntitySetMapping Name="Movies">
+            <EntityTypeMapping TypeName="NeoSISBase_OH_SQL_AEModel.Movy">
+              <MappingFragment StoreEntitySet="Movies">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Genres" ColumnName="Genres" />
+                <ScalarProperty Name="Original_Language" ColumnName="Original_Language" />
+                <ScalarProperty Name="Budget" ColumnName="Budget" />
+                <ScalarProperty Name="Overview" ColumnName="Overview" />
+                <ScalarProperty Name="Popularity" ColumnName="Popularity" />
+                <ScalarProperty Name="Production_Companies" ColumnName="Production_Companies" />
+                <ScalarProperty Name="Release_date" ColumnName="Release_date" />
+                <ScalarProperty Name="Revenue" ColumnName="Revenue" />
+                <ScalarProperty Name="Runtime" ColumnName="Runtime" />
+                <ScalarProperty Name="Tagline" ColumnName="Tagline" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Vote_Average" ColumnName="Vote_Average" />
+                <ScalarProperty Name="Vote_Count" ColumnName="Vote_Count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
